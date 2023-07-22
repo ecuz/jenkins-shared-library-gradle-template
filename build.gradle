@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'groovy'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def groovyVersion = "2.4.21"
+
+dependencies {
+    implementation("org.codehaus.groovy:groovy-all:$groovyVersion")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+sourceSets {
+    main {
+        groovy {
+            //noinspection GroovyAssignabilityCheck
+            srcDirs = ['src', 'vars']
+        }
+        resources {
+            srcDirs = ['src/resources']
+        }
+    }
+}
